@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!-- 아래의 코드는 mybatis를 사용을 하기위해 작성을 해야하는 코드입니다. -->
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- xml 파일은 데이터 베이스와 연동시키는 것을 담당하는 파일입니다 --> 
  <mapper namespace="com.asm.spring.test.databaseInterlock.repository.StoreRepository">
 	<select id="selectedStoreList" resultType="com.asm.spring.test.databaseInterlock.domain.Store">
 		SELECT `id`
-		,	`store`
+		,	`name` <!-- 집에 있는 db에서는 store이다 그러므르 집에서는 store로 바꾸어 주어야한다. -->
 		,	`phoneNumber`
 		,	`address`
 		,	`businessNumber`

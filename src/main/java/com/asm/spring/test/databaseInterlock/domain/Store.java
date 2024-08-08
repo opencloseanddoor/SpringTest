@@ -1,7 +1,8 @@
 package com.asm.spring.test.databaseInterlock.domain;
 
-import java.time.LocalDateTime;
+import java.time.LocalDateTime; // database 에서 생성 또는 수정 시간을 가져오기 위한 클래스
 
+//이 코드는 한행을 저장하기위한 entity 클래스이다
 //이 클래스에서는 데이터 베이스의 항목을 변수로 선언을 한다
 public class Store 
 {
@@ -13,6 +14,7 @@ public class Store
 	private String introduce;
 	private LocalDateTime createdAt;
 	private LocalDateTime updatedAt;
+	
 	public int getId() {
 		return id;
 	}
