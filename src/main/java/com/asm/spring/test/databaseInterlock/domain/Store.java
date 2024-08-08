@@ -2,6 +2,7 @@ package com.asm.spring.test.databaseInterlock.domain;
 
 import java.time.LocalDateTime;
 
+//이 클래스에서는 데이터 베이스의 항목을 변수로 선언을 한다
 public class Store 
 {
 	private int id;
