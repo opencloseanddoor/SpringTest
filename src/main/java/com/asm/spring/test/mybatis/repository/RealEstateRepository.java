@@ -24,5 +24,10 @@ public interface RealEstateRepository
 			,	@Param("type") String type
 			,	@Param("price") int price
 			,	@Param("rentPrice") int rentPrice);
-
+	
+	//부동산의 정보를 매개변수로 전달을 받아서 xml파일의 쿼리를 수행하는 메소드이다
+	public int updateRealEstateByObject(RealEstate realEstate);
+	
+	//부동산 객체와 id를 매개변수로 전달을 받아 xml파일에 쿼리를 수행하는 메소드이다.
+	public int deleteRealEstateByObject(RealEstate realEstate, @Param("id") int id);
 }

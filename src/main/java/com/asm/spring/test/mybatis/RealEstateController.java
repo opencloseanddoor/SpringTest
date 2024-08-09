@@ -70,4 +70,27 @@ public class RealEstateController
 	
 		return "입력 갯수 : " + count;
 	}
+	
+	@RequestMapping("/update")
+	@ResponseBody
+	public int updateRealEstate()
+	{
+		RealEstate realEstate = new RealEstate();
+		
+		int count = realEstateService.updateRealEstateByObject(realEstate);
+		
+		return count;
+	}
+	
+	@RequestMapping("/delete")
+	@ResponseBody
+	//이 메소드를 수행을 할 때는 id를 전달해주어야한다.
+	public int deleteRealEstate(@RequestParam("id") int id)
+	{
+		RealEstate realEstate = new RealEstate(); //부동산 정보를 담고있는 객체를 생성을 한다.
+		
+		int count = realEstateService.deleteRealEstateByObject(realEstate, id); //서비스 클래스가 갖고있는 delete메소드를 객체와 변수를 인자로 하여서 실행한다.
+		
+		return count;
+	}
 }

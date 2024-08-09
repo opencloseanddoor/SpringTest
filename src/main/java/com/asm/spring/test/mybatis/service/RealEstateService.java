@@ -53,4 +53,19 @@ public class RealEstateService
 		
 		return count;
 	}
+	
+	public int updateRealEstateByObject(RealEstate realEstate)
+	{
+		int count = realEstaraRepository.updateRealEstateByObject(realEstate);
+		
+		return count;
+	}
+	
+	//RealEstate를 객체로하고 id도 정수형 매개변수로 하여서 전달을 받는 메소드를 작성을 한다.
+	public int deleteRealEstateByObject(RealEstate realEstate, int id)
+	{
+		int count = realEstaraRepository.deleteRealEstateByObject(realEstate, id); //이 메소드를 수행을 하면 성공한 쿼리문의 갯수 만큼을 리턴한다
+		
+		return count;
+	}
 }

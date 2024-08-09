@@ -22,8 +22,8 @@
 	</select>
 	
 	<select id="selectRealEstate2" resultType="com.asm.spring.test.mybatis.domain.RealEstate"
-	parameterType="map">
-	SELECT 
+	parameterType="int">
+		SELECT
 			`id`
 		,	`realtorId`
 		,	`address`
@@ -35,12 +35,10 @@
 		,	`updatedAt`
 		
 		FROM `real_estate`
-		<!-- WHERE <![CDATA[`rentPrice` >= 30 ]]> -->
-		 
+		WHERE <![CDATA[rentPrice <= #{rentPrice}]]>
 	</select>
 	
-	<select id="selectRealEstate3" resultType="com.asm.spring.test.mybatis.domain.RealEstate"
-	parameterType="int">
+	<select id="selectRealEstate3" parameterType="map" resultType="com.asm.spring.test.mybatis.domain.RealEstate">
 		SELECT 
 			`id`
 		,	`realtorId`
@@ -53,15 +51,14 @@
 		,	`updatedAt`
 		
 		FROM `real_estate`
-		
 		WHERE 
-		<!--  <![CDATA[
+		<![CDATA[
 			area >= #{area}
-			AND 
-			price = #{price}
-		]]> -->
-			
-		ORDER BY `createdAt` DESC
+			AND
+			price <= #{price}
+			AND
+			type = "매매"
+		]]>
 	</select>
 	
 	<insert id="insertByRealEstateObject" parameterType="com.asm.spring.test.mybatis.domain.RealEstate">
@@ -109,4 +106,18 @@
 				,	#{rentPrice}
 			)
 	</insert>
+	
+	<update id="updateRealEstateByObject" parameterType="int">
+		UPDATE
+			`real_estate`
+				set
+					`type` = '전세',
+					`price` = 70000
+						WHERE `id` = 22
+	</update>
+	<!-- 아래의 코드는 정수형을 변수를 매개변수로 가지는 delete쿼리입니다. -->
+	<delete id="deleteRealEstateByObject" parameterType="int">	
+	<!-- 아래의 id를 매개변수로 갖는다. -->
+		DELETE FROM `real_estate` WHERE id = #{id}
+	</delete>
 </mapper>
