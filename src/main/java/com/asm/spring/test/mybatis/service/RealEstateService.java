@@ -25,4 +25,11 @@ public class RealEstateService
 		
 		return realEstate;
 	}
+	
+	public RealEstate getRealEstate3(int area, int price)
+	{
+		RealEstate realEstate = realEstaraRepository.selectRealEstate3(area, price);
+		
+		return realEstate;
+	}
 }

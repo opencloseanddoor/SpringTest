@@ -32,4 +32,13 @@ public class RealEstateController
 		
 		return realEstate;
 	}
+	
+	@RequestMapping("/mybatis/real-estate/3")
+	@ResponseBody
+	public RealEstate realEstate3(@RequestParam("area") int area, @RequestParam("price") int price)
+	{
+		RealEstate realEstate = realEstateService.getRealEstate3(area, price);
+		
+		return realEstate;
+	}
 }

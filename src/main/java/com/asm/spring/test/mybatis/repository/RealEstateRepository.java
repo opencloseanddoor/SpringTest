@@ -11,4 +11,6 @@ public interface RealEstateRepository
 	public RealEstate selectRealEstate(@Param("id") int id);
 	
 	public RealEstate selectRealEstate2(@Param("rentPrice") int rentPrice);
+	
+	public RealEstate selectRealEstate3(@Param("area") int area, @Param("price") int price);
 }

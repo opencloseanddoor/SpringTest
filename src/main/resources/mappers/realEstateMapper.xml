@@ -37,4 +37,26 @@
 		FROM `real_estate`
 		WHERE rentPrice = #{rentPrice}
 	</select>
+	
+	<select id="selectRealEstate3" resultType="com.asm.spring.test.mybatis.domain.RealEstate"
+	parameterType="map">
+		SELECT 
+			`id`
+		,	`realtorId`
+		,	`address`
+		,	`area`
+		,	`type`
+		,	`price`
+		,	`rentPrice`
+		,	`createdAt`
+		,	`updatedAt`
+		
+		FROM `real_estate`
+		
+		WHERE 
+			area >= #{area}
+			AND 
+			price = #{price}
+		ORDER BY `createdAt` DESC
+	</select>
 </mapper>
