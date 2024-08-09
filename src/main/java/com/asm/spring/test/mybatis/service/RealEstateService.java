@@ -1,5 +1,7 @@
 package com.asm.spring.test.mybatis.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,17 +21,36 @@ public class RealEstateService
 		return realEstate;
 	}
 
-	public RealEstate getRealEstate2(int rentPrice)
+	public List<RealEstate> getRealEstate2(int rentPrice)
 	{
-		RealEstate realEstate = realEstaraRepository.selectRealEstate2(rentPrice);
+		List<RealEstate> realEstate = realEstaraRepository.selectRealEstate2(rentPrice);
 		
 		return realEstate;
 	}
 	
-	public RealEstate getRealEstate3(int area, int price)
+	public List<RealEstate> getRealEstate3(int area, int price)
 	{
-		RealEstate realEstate = realEstaraRepository.selectRealEstate3(area, price);
+		List<RealEstate> realEstate = realEstaraRepository.selectRealEstate3(area, price);
 		
 		return realEstate;
+	}
+	
+	public int addRealEstateByObject(RealEstate realEstate)
+	{
+		int count = realEstaraRepository.insertByRealEstateObject(realEstate);
+		
+		return count;
+	}
+	
+	public int addRealEstateByElement(int realtorId
+			, String address
+			, int area
+			, String type
+			, int price
+			, int rentPrice)
+	{
+		int count = realEstaraRepository.insertRealEstateByElement(realtorId, address, area, type, price, rentPrice);
+		
+		return count;
 	}
 }

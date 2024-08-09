@@ -22,8 +22,8 @@
 	</select>
 	
 	<select id="selectRealEstate2" resultType="com.asm.spring.test.mybatis.domain.RealEstate"
-	parameterType="int">
-		SELECT 
+	parameterType="map">
+	SELECT 
 			`id`
 		,	`realtorId`
 		,	`address`
@@ -35,11 +35,12 @@
 		,	`updatedAt`
 		
 		FROM `real_estate`
-		WHERE rentPrice = #{rentPrice}
+		<!-- WHERE <![CDATA[`rentPrice` >= 30 ]]> -->
+		 
 	</select>
 	
 	<select id="selectRealEstate3" resultType="com.asm.spring.test.mybatis.domain.RealEstate"
-	parameterType="map">
+	parameterType="int">
 		SELECT 
 			`id`
 		,	`realtorId`
@@ -54,9 +55,58 @@
 		FROM `real_estate`
 		
 		WHERE 
+		<!--  <![CDATA[
 			area >= #{area}
 			AND 
 			price = #{price}
+		]]> -->
+			
 		ORDER BY `createdAt` DESC
 	</select>
+	
+	<insert id="insertByRealEstateObject" parameterType="com.asm.spring.test.mybatis.domain.RealEstate">
+		INSERT
+			`real_estate`
+			(
+					`realtorId`
+				,	`address`
+				,	`area`
+				,	`type`
+				,	`price`
+				,	`rentPrice`
+			)
+			
+			VALUE
+			(
+					#{realtorId}
+				,	#{address}
+				,	#{area}
+				,	#{type}
+				,	#{price}
+				,	#{rentPrice}
+			)
+	</insert>
+	
+	<insert id="insertRealEstateByElement" parameterType="map">
+		INSERT
+			`real_estate`
+			(
+					`realtorId`
+				,	`address`
+				,	`area`
+				,	`type`
+				,	`price`
+				,	`rentPrice`
+			)
+			
+			VALUE
+			(
+					#{realtorId}
+				,	#{address}
+				,	#{area}
+				,	#{type}
+				,	#{price}
+				,	#{rentPrice}
+			)
+	</insert>
 </mapper>
