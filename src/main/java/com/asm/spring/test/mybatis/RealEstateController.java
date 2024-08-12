@@ -73,11 +73,11 @@ public class RealEstateController
 	
 	@RequestMapping("/update")
 	@ResponseBody
-	public int updateRealEstate()
+	public int updateRealEstate(@RequestParam("id") int id)
 	{
 		RealEstate realEstate = new RealEstate();
 		
-		int count = realEstateService.updateRealEstateByObject(realEstate);
+		int count = realEstateService.updateRealEstateByObject(realEstate, id);
 		
 		return count;
 	}

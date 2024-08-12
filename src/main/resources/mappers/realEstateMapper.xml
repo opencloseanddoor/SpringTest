@@ -113,7 +113,7 @@
 				set
 					`type` = '전세',
 					`price` = 70000
-						WHERE `id` = 22
+						WHERE id = #{id}
 	</update>
 	<!-- 아래의 코드는 정수형을 변수를 매개변수로 가지는 delete쿼리입니다. -->
 	<delete id="deleteRealEstateByObject" parameterType="int">	

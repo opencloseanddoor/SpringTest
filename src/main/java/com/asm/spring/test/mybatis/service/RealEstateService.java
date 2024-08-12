@@ -54,9 +54,9 @@ public class RealEstateService
 		return count;
 	}
 	
-	public int updateRealEstateByObject(RealEstate realEstate)
+	public int updateRealEstateByObject(RealEstate realEstate, int id)
 	{
-		int count = realEstaraRepository.updateRealEstateByObject(realEstate);
+		int count = realEstaraRepository.updateRealEstateByObject(realEstate, id);
 		
 		return count;
 	}
