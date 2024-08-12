@@ -47,50 +47,53 @@ public class RealEstateController
 	
 	@RequestMapping("/create")
 	@ResponseBody
-	public String createRealEstate()
+	public String createRealEstate(@RequestParam("realtorId") int realtorId) //객체로 생성
 	{
 		RealEstate realEstate = new RealEstate();
 		
-		realEstate.setRealtorId(2);
+		// 값을 입력
+		realEstate.setRealtorId(realtorId);
 		realEstate.setAddress("서울시 서초구 양재동 다산빌딩");
 		realEstate.setArea(80);
 		realEstate.setType("매매");
 		realEstate.setPrice(1);
 		realEstate.setRentPrice(1);
-		int count = realEstateService.addRealEstateByObject(realEstate);
+		
+		int count = realEstateService.addRealEstateByObject(realEstate); //바뀐 항목의 갯수 만큼 리턴
 		
 		return "입력 갯수 : " + count;
 	}
 	
 	@RequestMapping("/create2")
 	@ResponseBody
-	public String createRealEstate2()
+	public String createRealEstate2(@RequestParam("realtorId") int realtorId) //매개변수로 생성
 	{
-		int count = realEstateService.addRealEstateByElement(1, "서초구 양재동 양재빌딩", 50, "매매", 1, 1);
+		//인자 값을 전달
+		int count = realEstateService.addRealEstateByElement(realtorId, "서초구 양재동 양재빌딩", 50, "매매", 1, 1);
 	
 		return "입력 갯수 : " + count;
 	}
 	
 	@RequestMapping("/update")
 	@ResponseBody
-	public int updateRealEstate(@RequestParam("id") int id)
+	public String updateRealEstate(@RequestParam("id") int id)
 	{
 		RealEstate realEstate = new RealEstate();
 		
-		int count = realEstateService.updateRealEstateByObject(realEstate, id);
+		int count = realEstateService.updateRealEstateByObject(id);
 		
-		return count;
+		return "수정개수" + count;
 	}
 	
 	@RequestMapping("/delete")
 	@ResponseBody
 	//이 메소드를 수행을 할 때는 id를 전달해주어야한다.
-	public int deleteRealEstate(@RequestParam("id") int id)
+	public String deleteRealEstate(@RequestParam("id") int id)
 	{
 		RealEstate realEstate = new RealEstate(); //부동산 정보를 담고있는 객체를 생성을 한다.
 		
-		int count = realEstateService.deleteRealEstateByObject(realEstate, id); //서비스 클래스가 갖고있는 delete메소드를 객체와 변수를 인자로 하여서 실행한다.
+		int count = realEstateService.deleteRealEstateByObject(id); //서비스 클래스가 갖고있는 delete메소드를 객체와 변수를 인자로 하여서 실행한다.
 		
-		return count;
+		return "삭제개수" + count;
 	}
 }

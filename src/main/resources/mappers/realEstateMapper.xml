@@ -61,6 +61,7 @@
 		]]>
 	</select>
 	
+	<!-- 아래는 객체(모델)를 매개변수로 사용을 하므로 매개변수 타입을 그 객체가 경로로 한다.-->
 	<insert id="insertByRealEstateObject" parameterType="com.asm.spring.test.mybatis.domain.RealEstate">
 		INSERT
 			`real_estate`
@@ -84,7 +85,7 @@
 			)
 	</insert>
 	
-	<insert id="insertRealEstateByElement" parameterType="map">
+	<insert id="insertRealEstateByElement" parameterType="map"> <!-- 매개변수가 여러개 이므로 매개변수 형은 map으로 해야한다. -->
 		INSERT
 			`real_estate`
 			(
@@ -118,6 +119,7 @@
 	<!-- 아래의 코드는 정수형을 변수를 매개변수로 가지는 delete쿼리입니다. -->
 	<delete id="deleteRealEstateByObject" parameterType="int">	
 	<!-- 아래의 id를 매개변수로 갖는다. -->
+	<!-- deleteRealEstateByObject메소드를 실행을 하면 아래의 쿼리가 실행이 된다. -->
 		DELETE FROM `real_estate` WHERE id = #{id}
 	</delete>
 </mapper>
