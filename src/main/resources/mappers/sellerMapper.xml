@@ -4,19 +4,47 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.asm.spring.test.mvc.repository.SellerRepository">
-	<insert id="addSeller" parameterType="com.asm.spring.test.mvc.domain.Seller">
-		INSERT
-		`seller`
-		(
+	<insert id="insertSeller" parameterType="map">
+		INSERT INTO
+			`seller`
+			(
+				`nickName`,
+				`temperature`,
+				`profileImage`
+			)
+			VALUE
+			(
+				#{nickName},
+				#{temperature},
+				#{profileImage}
+			)
+	</insert>
+	
+	<select id="SearchLastUser" resultType="com.asm.spring.test.mvc.domain.Seller">
+		SELECT 
 			`nickName`,
 			`temperature`,
 			`profileImage`
-		)
-		VALUE
-		(
-			#{nickName},
-			#{temperature},
-			#{profileImage}
-		)
-	</insert>
+			
+			FROM 
+				`seller`
+			WHERE 
+			`id` = #{id}
+			ORDER BY `id` DESC
+			LIMIT 1			
+	</select>
+	
+	<select id="selectSeller" parameterType="int"
+	resultType="com.asm.spring.test.mvc.domain.Seller">
+		SELECT 
+			`nickName`,
+			`temperature`,
+			`profileImage`
+			
+			FROM 
+				`seller`
+				
+			WHERE
+				`id` = #{id}
+	</select>
 </mapper>
