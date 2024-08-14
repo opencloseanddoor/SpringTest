@@ -22,9 +22,9 @@ public class SellerService
 		return count;
 	}
 	
-	public Seller serachLastUser()
+	public Seller searchLastUser()
 	{
-		Seller seller = sellerRepository.SearchLastUser();
+		Seller seller = sellerRepository.searchLastUser();
 		
 		return seller;
 	}

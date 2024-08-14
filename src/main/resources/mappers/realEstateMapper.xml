@@ -63,7 +63,7 @@
 	
 	<!-- 아래는 객체(모델)를 매개변수로 사용을 하므로 매개변수 타입을 그 객체가 경로로 한다.-->
 	<insert id="insertByRealEstateObject" parameterType="com.asm.spring.test.mybatis.domain.RealEstate">
-		INSERT
+		INSERT INTO
 			`real_estate`
 			(
 					`realtorId`
@@ -86,7 +86,7 @@
 	</insert>
 	
 	<insert id="insertRealEstateByElement" parameterType="map"> <!-- 매개변수가 여러개 이므로 매개변수 형은 map으로 해야한다. -->
-		INSERT
+		INSERT INTO
 			`real_estate`
 			(
 					`realtorId`

@@ -20,7 +20,7 @@
 			)
 	</insert>
 	
-	<select id="SearchLastUser" resultType="com.asm.spring.test.mvc.domain.Seller">
+	<select id="searchLastUser" resultType="com.asm.spring.test.mvc.domain.Seller">
 		SELECT 
 			`nickName`,
 			`temperature`,
@@ -35,16 +35,15 @@
 	</select>
 	
 	<select id="selectSeller" parameterType="int"
-	resultType="com.asm.spring.test.mvc.domain.Seller">
-		SELECT 
-			`nickName`,
-			`temperature`,
-			`profileImage`
-			
-			FROM 
-				`seller`
-				
-			WHERE
-				`id` = #{id}
-	</select>
+    resultType="com.asm.spring.test.mvc.domain.Seller">
+	    SELECT 
+	        `nickName`,
+	        `temperature`,
+	        `profileImage`
+	    FROM 
+	        `seller`
+	    WHERE
+	        `id` = #{id}
+</select>
+
 </mapper>

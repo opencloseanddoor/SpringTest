@@ -14,7 +14,7 @@ public interface SellerRepository
 			, @Param("temperature") double temperature
 			, @Param("profileImage") String profileImage);
 	
-	public Seller SearchLastUser();
+	public Seller searchLastUser();
 	
 	public Seller selectSeller(@Param("id") int id);
 }

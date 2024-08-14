@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>공인중개사 정보</h1>
+	
+	<table>
+		<tr>
+			<td>상호명</td>
+			<td th:text="${result.office}"></td>
+		</tr>	
+	
+		<tr>
+			<td>전화번호</td>
+			<td th:text="${result.phoneNumber}"></td>
+		</tr>	
+		
+		<tr>
+			<td>주소</td>
+			<td th:text="${result.address}"></td>
+		</tr>	
+		
+		<tr>
+			<td>등급</td>
+			<td th:text="${result.grade}"></td>
+		</tr>	
+	</table>
+</body>
+</html>

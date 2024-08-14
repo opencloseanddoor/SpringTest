@@ -44,7 +44,7 @@ public class SellerController
 		if(id == null)
 		{
 			
-			seller = sellerService.serachLastUser();
+			seller = sellerService.searchLastUser();
 			
 			model.addAttribute("seller", seller);
 		}
