@@ -15,7 +15,7 @@ import com.asm.spring.test.mvc2.service.RealtorService;
 public class RealtorController 
 {
 	@Autowired
-	RealtorService realtorService;
+	private RealtorService realtorService;
 
 	@PostMapping("/create")
 	public String createRealtor(

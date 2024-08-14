@@ -10,7 +10,7 @@ import com.asm.spring.test.mvc2.repository.RealtorRepository;
 public class RealtorService 
 {
 	@Autowired
-	RealtorRepository realtorRepository;
+	private RealtorRepository realtorRepository;
 	
 	public int addRealtor(Realtor Realtor)
 	{

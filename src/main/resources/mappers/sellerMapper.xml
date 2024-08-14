@@ -28,14 +28,12 @@
 			
 			FROM 
 				`seller`
-			WHERE 
-			`id` = #{id}
+			
 			ORDER BY `id` DESC
 			LIMIT 1			
 	</select>
 	
-	<select id="selectSeller" parameterType="int"
-    resultType="com.asm.spring.test.mvc.domain.Seller">
+	<select id="selectSeller" resultType="com.asm.spring.test.mvc.domain.Seller">
 	    SELECT 
 	        `nickName`,
 	        `temperature`,

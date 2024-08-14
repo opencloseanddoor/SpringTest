@@ -16,14 +16,14 @@ import com.asm.spring.test.mvc.service.SellerService;
 public class SellerController 
 {
 	@Autowired
-	SellerService sellerService;
+	private SellerService sellerService;
 	
 	//데이터 저장 과정을 진행할 페이지
 	@PostMapping("/create")
 	public String createSeller(
 			@RequestParam("nickName") String nickName
 			, @RequestParam("temperature") double temperature
-			, @RequestParam("profile") String profileImage)
+			, @RequestParam("profileImage") String profileImage)
 	{
 		
 	    return "redirect:/mvc/seller/info";

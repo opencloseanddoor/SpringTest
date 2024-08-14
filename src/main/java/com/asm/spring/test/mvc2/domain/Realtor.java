@@ -2,6 +2,7 @@ package com.asm.spring.test.mvc2.domain;
 
 public class Realtor
 {
+	private int id; //트랜잭션을 사용을 할 때 왜? id를 사용을 해야하는지 이해한 다음 그 내용을 이 곳에 적자~
 	private String office;
 	private String phoneNumber;
 	private String address;
