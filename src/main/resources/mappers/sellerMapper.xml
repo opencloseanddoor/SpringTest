@@ -28,7 +28,6 @@
 			
 			FROM 
 				`seller`
-			
 			ORDER BY `id` DESC
 			LIMIT 1			
 	</select>

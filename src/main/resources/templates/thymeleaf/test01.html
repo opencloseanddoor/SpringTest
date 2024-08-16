@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>타임리프 문제1</title>
+</head>
+<body>
+	<h1>1. 변수</h1>
+	<th:block th:with="number1=36, number2 = 3">
+		<!-- 1번 문제 -->
+		<h1>변수</h1>
+		<h4 th:text="|첫 번째 숫자 : ${number1}"></h4>
+		<h4 th:text="|두 번째 숫자 : ${number2}"></h4>
+		
+		<!-- 2번 문제 -->
+		<h1>산술연산</h1>
+		<h4 th:text="|더하기 : ${number1 + number2}|"></h4>
+		<h4 th:text="|빼기 : ${number1 - number2}|"></h4>
+		<h4 th:text="|곱하기 : ${number1 * number2}|"></h4>
+		<h4 th:text="|나누기 : ${number1 / number2}|"></h4>
+		
+		<!-- 4번 문제 -->
+		<h1>if와 unless</h1>
+		<th:block th:with="average = ${(number1 + number2) / 2.0}">
+			<!-- total에 들어있는 금액이 10보다 크면 h1태그로 표현합니다 -->
+			<h1 th:if="${average >= 10}" th:text="${average}"></h1>
+			<!-- total에 들어있는 금액이 10보다 작으면 h3태그로 표현합니다 -->
+			<h3 th:unless="${average >= 10}" th:text="${average}"></h3>
+		</th:block>
+		
+	</th:block>
+	
+	<!-- 3번 문제 -->
+	<h1>태그의 내용을 그대로 표시</h1>
+	<div th:utext="'<h3>안녕하세요</h3>'"></div>
+
+</body>
+</html>
