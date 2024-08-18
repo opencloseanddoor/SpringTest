@@ -26,8 +26,8 @@
 			`temperature`,
 			`profileImage`
 			
-			FROM 
-				`seller`
+			FROM `seller`
+			
 			ORDER BY `id` DESC
 			LIMIT 1			
 	</select>
@@ -37,8 +37,7 @@
 	        `nickName`,
 	        `temperature`,
 	        `profileImage`
-	    FROM 
-	        `seller`
+	    FROM `seller`
 	    WHERE
 	        `id` = #{id}
 </select>

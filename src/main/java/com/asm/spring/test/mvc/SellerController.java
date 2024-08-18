@@ -25,6 +25,13 @@ public class SellerController
 			, @RequestParam("temperature") double temperature
 			, @RequestParam("profileImage") String profileImage)
 	{
+		Seller seller = new Seller();
+		
+		seller.setNickName(nickName);
+		seller.setTemperature(temperature);
+		seller.setProfileImage(profileImage);
+		
+		sellerService.addSeller(nickName, temperature, profileImage);
 		
 	    return "redirect:/mvc/seller/info";
 	}
