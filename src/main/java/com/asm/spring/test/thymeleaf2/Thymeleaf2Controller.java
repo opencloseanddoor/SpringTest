@@ -77,7 +77,6 @@ public class Thymeleaf2Controller
 		
 		model.addAttribute("member", membership);
 
-		
 		return "thymeleaf/test03";
 	}
 }
