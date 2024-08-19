@@ -20,14 +20,19 @@
 			<tr th:each="member : ${member}">
 				<td th:text="${member.name}"></td>
 				<td th:text="${member.phoneNumber}"></td>
-				<td th:if="${member.grade == 'VIP'}" class="text-danger" th:text="${member.grade}"></td>
-				<td th:if="${member.grade == 'GOLD'}" class="text-warning" th:text="${member.grade}"></td>
-				<td th:unless="${member.grade == 'GOLD' || member.grade == 'VIP'}" th:text="${member.grade}"></td>
-				<td th:if="${member.point >= 5000}" class="text-primary" th:text="${member.point}"></td>
-				<td th:unless="${member.point >= 5000}" th:text="${member.point}"></td>
+				
+				<td th:switch="${member.grade}"> <!-- 등급을 판단하는 영역입니다 -->
+					<span th:case="VIP" class="text-danger" th:text="${member.grade}"></span>
+					<span th:case="GOLD" class="text-warning" th:text="${member.grade}"></span>
+					<span th:case="*" th:text="${member.grade}"></span>
+				</td>
+				
+				<td>
+					<span  th:if="${member.point >= 5000}" class="text-primary" th:text="|${member.point}P|"></span>
+					<span  th:unless="${member.point >= 5000}" th:text="|${member.point}P|"></span>
+				</td>
 			</tr>
 		</tbody>
-	
 	</table>
 </body>
 </html>
