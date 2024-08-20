@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+#wrap
+{
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.content > .main-menu
+{
+	width: 300px;
+}
+
+.main-menu > .logo
+{
+	width: 300px;
+}
+
+.main-menu > .category
+{
+	width: 300px;
+}
+
+.content > .main-content
+{
+	width: 900px;
+}
+
+footer > .image-space
+{
+	width: 300px;
+}
+
+footer > .text-space
+{
+	width: 900px;
+}

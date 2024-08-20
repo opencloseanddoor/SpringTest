@@ -29,7 +29,9 @@
 				<span th:if="${#strings.contains(member.phoneNumber, '010')}" th:text="${member.phoneNumber}"></span>
 				<span th:unless="${#strings.contains(member.phoneNumber, '010')}">유효하지 않은 번호입니다.</span>
 			</td>
+			
 			<td th:text="${#strings.replace(member.nationality, '삼국시대', '삼국 - ')}"></td>
+			
 			<td>
 				<b th:text="${#strings.arraySplit(member.email, '@')[0]}"></b><span th:text="|@${#strings.arraySplit(member.email, '@')[1]}|"></span>
 			</td>
