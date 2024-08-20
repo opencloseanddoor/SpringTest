@@ -31,7 +31,7 @@
 			</td>
 			<td th:text="${#strings.replace(member.nationality, '삼국시대', '삼국 - ')}"></td>
 			<td>
-				<b th:text="${#strings.arraySplit(member.email, '@')[0]}"></b>
+				<b th:text="${#strings.arraySplit(member.email, '@')[0]}"></b><span th:text="|@${#strings.arraySplit(member.email, '@')[1]}|"></span>
 			</td>
 			
 			<td>
