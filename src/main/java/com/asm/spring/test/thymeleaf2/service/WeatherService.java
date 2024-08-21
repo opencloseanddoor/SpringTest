@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.asm.spring.test.thymeleaf2.repository.WeatherhistoryRepository;
 import com.asm.spring.test.thymeleaf2.weatherhistory.Weatherhistory;
@@ -21,10 +22,17 @@ public class WeatherService
 		return weather;
 	}
 	
-	public int insertWeather(Weatherhistory weather)
+	public int addWeather(
+			  String date
+			, String weather
+			, double temperatures
+			, double precipitation
+			, String microDust
+			, double windSpeed)
 	{
-		int count = weatherhistoryRepository.insertWeatherHistory(weather);
+		int count = weatherhistoryRepository.insertWeatherHistory(date, weather, temperatures, precipitation, microDust, windSpeed);
 		
 		return count;
 	}
+	 
 }

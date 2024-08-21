@@ -1,37 +1,26 @@
+
 @charset "UTF-8";
 
-#wrap
-{
-	width: 1200px;
-	margin: 0 auto;
+#wrap {
+	width:1200px;
 }
 
-.content > .main-menu
-{
-	width: 300px;
+.contents > .main-menu {
+	width:200px;
+	height:500px;
+	background-color:cornflowerblue;
 }
 
-.main-menu > .logo
-{
-	width: 300px;
+.contents > .main-contents {
+	width:1000px;
+	height:500px;
 }
 
-.main-menu > .category
-{
-	width: 300px;
+.input-label {
+	width:120px;
+	text-align:right;
 }
 
-.content > .main-content
-{
-	width: 900px;
-}
-
-footer > .image-space
-{
-	width: 300px;
-}
-
-footer > .text-space
-{
-	width: 900px;
+footer {
+	height:100px;
 }

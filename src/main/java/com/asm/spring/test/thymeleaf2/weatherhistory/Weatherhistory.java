@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 public class Weatherhistory 
 {
 	private int id;
-	private LocalDate date;
+	private String date;
 	private String weather;
 	private double temperatures;
 	private double precipitation;
@@ -20,10 +20,10 @@ public class Weatherhistory
 	public void setId(int id) {
 		this.id = id;
 	}
-	public LocalDate getDate() {
+	public String getDate() {
 		return date;
 	}
-	public void setDate(LocalDate date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	public String getWeather() {
@@ -68,4 +68,7 @@ public class Weatherhistory
 	public void setUpdatedAt(LocalDateTime updatedAt) {
 		this.updatedAt = updatedAt;
 	}
+	
+	
+	
 }
