@@ -20,4 +20,11 @@ public class WeatherService
 		
 		return weather;
 	}
+	
+	public int insertWeather(Weatherhistory weather)
+	{
+		int count = weatherhistoryRepository.insertWeatherHistory(weather);
+		
+		return count;
+	}
 }

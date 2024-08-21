@@ -7,4 +7,25 @@
 	<select id="selectWeatherhistory" resultType="com.asm.spring.test.thymeleaf2.weatherhistory.Weatherhistory">
 		SELECT * FROM `weatherhistory`
 	</select>
+	
+	<insert id="insertWeatherHistory" parameterType="com.asm.spring.test.thymeleaf2.weatherhistory.Weatherhistory">
+		INSERT INTO
+		`weatherhistory`
+		(
+			`name`,
+			`weather`,
+			`temperatures`,
+			`precipitation`,
+			`microDust`,
+			`windSpeed`
+		)
+		(
+			#{name},
+			#{weather},
+			#{temperatures},
+			#{precipitation},
+			#{microDust},
+			#{windSpeed}
+		)
+	</insert>
 </mapper>

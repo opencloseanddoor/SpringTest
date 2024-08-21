@@ -11,4 +11,6 @@ public interface WeatherhistoryRepository
 {
 	//한 행의 정보를 담을 수 있는 리스트를 만들어 준다.
 	public List<Weatherhistory> selectWeatherhistory();
+	
+	public int insertWeatherHistory(Weatherhistory weatherHistory);
 }

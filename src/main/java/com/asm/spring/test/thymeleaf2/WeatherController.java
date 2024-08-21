@@ -1,12 +1,15 @@
 package com.asm.spring.test.thymeleaf2;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.asm.spring.test.thymeleaf2.service.WeatherService;
 import com.asm.spring.test.thymeleaf2.weatherhistory.Weatherhistory;
@@ -29,9 +32,24 @@ public class WeatherController
 		return "thymeleaf/weather/list";
 	}
 	
-	@GetMapping("/input")
-	public String weatherInput()
+	@PostMapping("/input")
+	public String weatherInput(
+			@RequestParam("date") LocalDate date
+			, @RequestParam("weather") String weather
+			, @RequestParam("temperatures") double temperatures
+			, @RequestParam("precipitation") double precipitation
+			, @RequestParam("windSpeed") double windSpeed
+			, Model model)
 	{
+		Weatherhistory weatherhis = new Weatherhistory();
+		weatherhis.setDate(date);
+		weatherhis.setWeather(weather);
+		weatherhis.setTemperatures(temperatures);
+		weatherhis.setPrecipitation(precipitation);
+		weatherhis.setWindSpeed(windSpeed);
+		
+		model.addAttribute("waether", weatherhis);
+		
 		return "thymeleaf/weather/input";
 	}
 }
