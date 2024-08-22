@@ -32,24 +32,9 @@ public class WeatherController
 		return "thymeleaf/weather/list";
 	}
 	
-	@PostMapping("/input")
-	public String weatherInput(
-			@RequestParam("date") LocalDate date
-			, @RequestParam("weather") String weather
-			, @RequestParam("temperatures") double temperatures
-			, @RequestParam("precipitation") double precipitation
-			, @RequestParam("windSpeed") double windSpeed
-			, Model model)
+	@GetMapping("/input")
+	public String weatherInput()
 	{
-		Weatherhistory weatherhis = new Weatherhistory();
-		weatherhis.setDate(date);
-		weatherhis.setWeather(weather);
-		weatherhis.setTemperatures(temperatures);
-		weatherhis.setPrecipitation(precipitation);
-		weatherhis.setWindSpeed(windSpeed);
-		
-		model.addAttribute("waether", weatherhis);
-		
 		return "thymeleaf/weather/input";
 	}
 }
