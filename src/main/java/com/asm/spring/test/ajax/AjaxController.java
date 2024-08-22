@@ -1,39 +1,50 @@
 package com.asm.spring.test.ajax;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.asm.spring.test.ajax.domain.Favorite;
+import com.asm.spring.test.ajax.service.FavoriteService;
 
 @Controller
-public class AjaxController 
+@RequestMapping("/ajax/")
+public class AjaxController
 {
-	// 이름과 생년월일을 전달 받고, 이름과 나이를 json으로 response 담는 기능
-	@GetMapping("/ajax/person")
-	@ResponseBody
-	public Map<String, Object> personInfo(
-			@RequestParam("name") String name
-			, @RequestParam("birthday") String birthday)
+	
+	@Autowired
+	private FavoriteService favoriteService;
+	
+	@GetMapping("/list")
+	public String list(Model model)
 	{
-		int year = Integer.parseInt(birthday.substring(0, 4));
+		List<Favorite> favorite = favoriteService.searchList();
+		model.addAttribute("favorite", favorite);
 		
-		int age = 2024 - year + 1;
-		
-		// {"name":"김인규", "age":24}
-		
-		Map<String, Object> personMap = new HashMap<>();
-		personMap.put("name", name);
-		personMap.put("age", age);
-		
-		return personMap;
+		return "ajax/list";
 	}
 	
-	@GetMapping("/ajax/ex01")
-	public String ex01()
+	@GetMapping("/input")
+	public String input()
 	{
-		return "ajax/ex01";
+		return "ajax/input";
+	}
+	
+	@PostMapping("/create")
+	public String createFavorite
+	(
+		@RequestParam("name") String name,
+		@RequestParam("address") String address
+	)
+	{
+		int count = favoriteService.insertList(name, address);
+		
+		return "redirect:/ajax/list";
 	}
 }
