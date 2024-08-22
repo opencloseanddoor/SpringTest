@@ -24,10 +24,10 @@ public class FavoriteService
 	public int insertList
 	(
 		String name,
-		String address
+		String url
 	)
 	{
-		int count = favoriteRepository.insertFavorite(name, address);
+		int count = favoriteRepository.insertFavorite(name, url);
 		
 		return count;
 	}

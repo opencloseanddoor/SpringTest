@@ -6,7 +6,7 @@ public class Favorite
 {
 	private int id;
 	private String name;
-	private String address;
+	private String url;
 	private LocalDateTime createdAt;
 	private LocalDateTime updatedAt;
 	
@@ -23,11 +23,11 @@ public class Favorite
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getAddress() {
-		return address;
+	public String getUrl() {
+		return url;
 	}
-	public void setAddress(String address) {
-		this.address = address;
+	public void setUrl(String url) {
+		this.url = url;
 	}
 	public LocalDateTime getCreatedAt() {
 		return createdAt;
@@ -41,4 +41,6 @@ public class Favorite
 	public void setUpdatedAt(LocalDateTime updatedAt) {
 		this.updatedAt = updatedAt;
 	}
+	
+	
 }

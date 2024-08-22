@@ -8,17 +8,16 @@
 		SELECT
 			`id`,
 			`name`,
-			`address`
-		FROM `favorite`
+			`url`
+		FROM `bookmark`
 	</select>
 	
-	<insert id="insertFavorite">
-		INSERT INTO `favorite`
-		(`name`, `address`)
+	<insert id="insertFavorite" parameterType="map">
+		INSERT INTO `bookmark`
+		(`name`, `url`)
 		VALUE
-		(
-			#{name},
-			#{address}
+		(			#{name},
+			#{url}
 		)
 	</insert>
 </mapper>

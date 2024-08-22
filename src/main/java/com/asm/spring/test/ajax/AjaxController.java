@@ -1,6 +1,8 @@
 package com.asm.spring.test.ajax;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,12 +11,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.asm.spring.test.ajax.domain.Favorite;
 import com.asm.spring.test.ajax.service.FavoriteService;
 
 @Controller
-@RequestMapping("/ajax/")
+@RequestMapping("/ajax")
 public class AjaxController
 {
 	
@@ -37,14 +40,25 @@ public class AjaxController
 	}
 	
 	@PostMapping("/create")
-	public String createFavorite
+	@ResponseBody
+	public Map<String, String> createFavorite
 	(
 		@RequestParam("name") String name,
-		@RequestParam("address") String address
+		@RequestParam("url") String url
 	)
 	{
-		int count = favoriteService.insertList(name, address);
+		int count = favoriteService.insertList(name, url);
+		Map<String, String> resultMap = new HashMap<>();
 		
-		return "redirect:/ajax/list";
+		if(count == 1)
+		{
+			resultMap.put("result", "success");
+		}
+		else
+		{
+			resultMap.put("result", "fail");
+		}
+		
+		return resultMap;
 	}
 }
