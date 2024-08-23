@@ -32,13 +32,14 @@ public class FavoriteService
 		return count;
 	}
 	
-	public int deleteList
-	(
-			String name,
-			String url
-	)
+	public int deleteList(int id)
 	{
-		int count = favoriteRepository.deleteFavorite(name, url);
+		int count = favoriteRepository.deleteFavorite(id);
 		return count;
+	}
+	
+	public boolean isDuplicate(String url)
+	{
+		return (favoriteRepository.isDuplicate(url) != 0);
 	}
 }

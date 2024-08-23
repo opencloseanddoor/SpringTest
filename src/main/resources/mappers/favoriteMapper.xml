@@ -21,11 +21,18 @@
 		)
 	</insert>
 	
-	<delete id="deleteFavorite" parameterType="map">
+	<delete id="deleteFavorite">
 		DELETE FROM `bookmark`
-		WHERE 
-		`name` = #{name}
-		AND
-		`url` = #{url};
+		WHERE id = #{id}
+		LIMIT 1;
 	</delete>
+	
+	<select id="isDuplicate" parameterType="String" resultType="int">
+		SELECT 
+			count(*) 
+		FROM 
+			`bookmark` 
+		WHERE 
+			`url` = #{url};
+	</select>
 </mapper>

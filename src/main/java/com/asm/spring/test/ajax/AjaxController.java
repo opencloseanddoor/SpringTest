@@ -62,15 +62,14 @@ public class AjaxController
 		return resultMap;
 	}
 	
-	@GetMapping("delete")
+	@GetMapping("/delete")
 	@ResponseBody
 	public Map<String, String> deleteFavorite
 	(
-		@RequestParam("name") String name,
-		@RequestParam("url") String url
+		@RequestParam("id") int id
 	)
 	{
-		int count = favoriteService.deleteList(name, url);
+		int count = favoriteService.deleteList(id);
 		Map<String, String> resultMap = new HashMap<>();
 		
 		if(count == 1)
@@ -84,5 +83,21 @@ public class AjaxController
 		}
 		
 		return resultMap;
+	}
+	
+	@GetMapping("isDuplicate")
+	@ResponseBody
+	public Map<String, Boolean> isDuplicate
+	(
+		@RequestParam("url") String url
+	)
+	{
+		// {"isDuplicate" : true}
+		// {"isDuplicate" : false}
+		Map<String, Boolean> isDuplicateMap = new HashMap<>();
+		
+		isDuplicateMap.put("isDuplicate", favoriteService.isDuplicate(url));
+		
+		return isDuplicateMap;
 	}
 }

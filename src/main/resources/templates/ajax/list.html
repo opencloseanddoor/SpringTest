@@ -21,41 +21,33 @@
 				<td class="id" th:text="${favorite.id}">1</td>
                 <td class="name" th:text="${favorite.name}">안성민</td>
                 <td class="url" th:text="${favorite.url}">www.google.com</td>
-				<td><button type="button" class="btn bg-danger deleteBtn">삭제</button></td>
-			</tr>
-			
-			<tr th:each="favorite : ${favorite}">
-				<td class="id" th:text="${favorite.id}">1</td>
-                <td class="name" th:text="${favorite.name}">안성민</td>
-                <td class="url" th:text="${favorite.url}">www.google.com</td>
-				<td><button type="button" class="btn bg-danger deleteBtn">삭제</button></td>
+				<td><button type="button" th:data-favorite-id="${favorite.id}" class="btn bg-danger deleteBtn btn-sm">삭제</button></td>
 			</tr>
 		</tbody>
 	</table>
 	
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
 	
 	<script>
 		$(document).ready(function()
 		{
 			$(".deleteBtn").on("click", function()
 			{
-                let row = $(this).closest("tr");
-                
-                let name = row.find(".name").text();
-                let url = row.find(".url").text();
+				let id = $(this).data("favorite-id");
 				
 				$.ajax
 				({					
 					type:"get",
 					url:"/ajax/delete",
-					data:{"name":name, "url":url},
+					data:{"id":id},
 					success:function(data)
 					{
 						if(data.result == "success")
 						{
 							alert("삭제 성공");
-							location.href="/ajax/list";
+							location.reload();
 						}
 						
 						else

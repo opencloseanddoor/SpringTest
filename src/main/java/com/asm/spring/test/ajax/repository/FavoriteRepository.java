@@ -14,13 +14,11 @@ public interface FavoriteRepository
 	
 	public int insertFavorite
 	(
-			@Param("name") String name,
-			@Param("url") String url
+		@Param("name") String name,
+		@Param("url") String url
 	);
 	
-	public int deleteFavorite
-	(
-			@Param("name") String name,
-			@Param("url") String url
-	);
+	public int deleteFavorite(@Param("id") int id);
+	
+	public int isDuplicate(@Param("url") String url);
 }

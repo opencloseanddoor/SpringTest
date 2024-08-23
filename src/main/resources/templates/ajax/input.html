@@ -11,8 +11,10 @@
 	<label>제목</label>
 	<input type="text" id="inputName"><br>
 	<label class="mt-5">주소</label>
-	<input type="text" id="inputUrl"><br>
-	<button class="mt-5 bg-success" type="button" id="submitBtn">추가</button>
+	<input type="text" id="inputUrl"><button type="button" class="ml-3 btn bg-danger" id="isDuplicate">중복확인</button><br>
+	<div class="text-danger d-none" id="duplicateText">중복된 url입니다.</div>
+	<div class="text-success d-none" id="availableText">사용가능한 url입니다</div>
+	<button class="mt-5 bg-success btn" type="button" id="submitBtn">추가</button>
 	
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
@@ -62,6 +64,43 @@
 				,error:function()
 				{
 					alert("추가 에러");
+				}
+			});
+		});
+		
+		$("#isDuplicate").on("click", function()
+		{
+			let url = $("#inputUrl").val();
+			
+			if(url == "")
+			{
+				alert("url이 비어있습니다");
+				return ;
+			}
+			
+			$.ajax
+			({
+				type:"get",
+				url:"/ajax/isDuplicate",
+				data:{"url":url},
+				success:function(data)
+				{
+					if(data.isDuplicate)
+					{
+						alert("중복되었습니다.");
+						$("#duplicateText").removeClass("d-none");
+						$("#availableText").addClass("d-none");
+					}
+					else 
+					{
+						alert("사용가능한 url 입니다.");
+						$("#availableText").removeClass("d-none");
+						$("#duplicateText").addClass("d-none");
+					}
+				}
+				,error:function()
+				{
+					alert("중복확인 에러!!");
 				}
 			});
 		});
