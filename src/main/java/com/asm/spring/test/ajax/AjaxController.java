@@ -61,4 +61,28 @@ public class AjaxController
 		
 		return resultMap;
 	}
+	
+	@GetMapping("delete")
+	@ResponseBody
+	public Map<String, String> deleteFavorite
+	(
+		@RequestParam("name") String name,
+		@RequestParam("url") String url
+	)
+	{
+		int count = favoriteService.deleteList(name, url);
+		Map<String, String> resultMap = new HashMap<>();
+		
+		if(count == 1)
+		{
+			resultMap.put("result", "success");
+		}
+		
+		else 
+		{
+			resultMap.put("result", "fail");
+		}
+		
+		return resultMap;
+	}
 }

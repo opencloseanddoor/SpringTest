@@ -31,4 +31,14 @@ public class FavoriteService
 		
 		return count;
 	}
+	
+	public int deleteList
+	(
+			String name,
+			String url
+	)
+	{
+		int count = favoriteRepository.deleteFavorite(name, url);
+		return count;
+	}
 }

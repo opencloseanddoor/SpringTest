@@ -17,4 +17,10 @@ public interface FavoriteRepository
 			@Param("name") String name,
 			@Param("url") String url
 	);
+	
+	public int deleteFavorite
+	(
+			@Param("name") String name,
+			@Param("url") String url
+	);
 }

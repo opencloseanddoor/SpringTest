@@ -20,4 +20,12 @@
 			#{url}
 		)
 	</insert>
+	
+	<delete id="deleteFavorite" parameterType="map">
+		DELETE FROM `bookmark`
+		WHERE 
+		`name` = #{name}
+		AND
+		`url` = #{url};
+	</delete>
 </mapper>
