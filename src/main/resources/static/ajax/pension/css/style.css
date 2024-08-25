@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+#wrap
+{
+	width:1200px;
+	margin:0 auto;
+}
+
+header
+{
+	height:100px;
+}
+
+.navigator
+{
+	height:50px;
+	background-color:brown;
+}
+
+.view-list
+{
+	height:100px;
+}
+
+.main-contents
+{
+	
+}
+
+footer
+{
+	height:100px;
+}
