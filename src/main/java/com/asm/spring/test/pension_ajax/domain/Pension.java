@@ -1,12 +1,14 @@
 package com.asm.spring.test.pension_ajax.domain;
 
+import java.time.LocalDate;
+
 public class Pension 
 {
 	private int id;
 	private String name;
 	private int headcount;
 	private int day;
-	private String date;
+	private LocalDate date;
 	private String phoneNumber;
 	private String state;
 	
@@ -34,10 +36,10 @@ public class Pension
 	public void setDay(int day) {
 		this.day = day;
 	}
-	public String getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
-	public void setDate(String date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
 	public String getPhoneNumber() {

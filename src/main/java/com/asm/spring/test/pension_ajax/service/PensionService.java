@@ -1,5 +1,6 @@
 package com.asm.spring.test.pension_ajax.service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
@@ -28,6 +29,20 @@ public class PensionService
 	)
 	{
 		int count = pensionRepository.deleteList(id);
+		
+		return count;
+	}
+	
+	public int createList
+	(
+		String name,
+		LocalDate date,
+		int day,
+		int headcount,
+		String phoneNumber
+	)
+	{
+		int count = pensionRepository.createList(name, date, day, headcount, phoneNumber, "대기중");
 		
 		return count;
 	}

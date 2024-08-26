@@ -22,4 +22,18 @@
 		WHERE `id` = #{id}
 		LIMIT 1;
 	</delete>
+	
+	<insert id="createList" parameterType="map">
+		INSERT INTO `booking`
+		(`name`, `date`, `day`, `headcount`, `phoneNumber`, `state`)
+		VALUE
+		(
+			#{name},
+			#{date},
+			#{day},
+			#{headcount},
+			#{phoneNumber},
+			#{state}
+		)
+	</insert>
 </mapper>
