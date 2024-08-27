@@ -46,4 +46,13 @@ public class PensionService
 		
 		return count;
 	}
+	
+	public Pension selectPension
+	(
+		String name,
+		String phoneNumber
+	)
+	{
+		return pensionRepository.selectPension(name, phoneNumber);
+	}
 }

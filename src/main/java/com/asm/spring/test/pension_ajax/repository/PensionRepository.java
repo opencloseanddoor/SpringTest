@@ -24,4 +24,10 @@ public interface PensionRepository
 		@Param("phoneNumber") String phoneNumber,
 		@Param("state") String state
 	);
+	
+	public Pension selectPension
+	(
+		@Param("name") String name,
+		@Param("phoneNumber") String phoneNumber
+	);
 }
