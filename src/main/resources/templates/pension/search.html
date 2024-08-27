@@ -26,7 +26,7 @@
             </header>
 
             <section class="banner">
-                <img width="1200px" height="500px" src="https://cdn.pixabay.com/photo/2024/02/17/13/38/cabin-8579310_640.jpg" id="bannerImage">
+                <img width="1200px" height="500px" src="https://cdn.pixabay.com/photo/2024/07/08/05/41/girl-8880144__340.png" id="bannerImage">
             </section>
             <section class="d-flex">
                 <article class="reservation d-flex justify-content-center align-items-center">
@@ -112,7 +112,7 @@
 						"phoneNumber": phoneNumber
             		},
             		success:function(data)
-            		{            			
+            		{
             			if(data.result == "success") //data가 가지고 있는 key중 result에 접근을 하여서 그 값을 가지고 옵니다~
             			{
             				let pension = data.pension; //data가 가지고있는 key중 pension에 접근을 해서 model에서 조회된 항목들을 가지고옵니다.
@@ -133,13 +133,13 @@
             		},
             		error:function()
             		{
-            			alert("추가 에러");
+            			alert("조회 에러");
             		}
             		
             	});
             });
 
-            var bannerList = ["https://cdn.pixabay.com/photo/2023/09/21/01/20/sugar-blader-8265868_640.jpg", "https://cdn.pixabay.com/photo/2024/07/05/08/33/koala-8874351_1280.jpg", "https://cdn.pixabay.com/photo/2024/01/02/10/33/stream-8482939_640.jpg", "https://cdn.pixabay.com/photo/2023/10/19/15/18/mountains-8326967_640.jpg"];
+            var bannerList = ["https://cdn.pixabay.com/photo/2023/12/07/11/11/girl-8435339__340.png", "https://cdn.pixabay.com/photo/2024/07/08/05/16/girl-8880120__340.png", "https://cdn.pixabay.com/photo/2024/07/08/05/09/girl-8880111__340.png", "https://cdn.pixabay.com/photo/2024/04/19/14/44/woman-8706492__340.png"];
             var currentImageIndex = 0;
             setInterval(function() {
                 $("#bannerImage").attr("src", bannerList[currentImageIndex]);
