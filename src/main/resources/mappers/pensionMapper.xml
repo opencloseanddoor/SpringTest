@@ -40,6 +40,7 @@
 	<select id="selectPension" resultType="com.asm.spring.test.pension_ajax.domain.Pension">
 		SELECT * FROM `booking`
     	WHERE `name` = #{name}
-    	AND `phoneNumber` = #{phoneNumber};
+    	AND 
+    	`phoneNumber` = #{phoneNumber};
 	</select>
 </mapper>

@@ -113,9 +113,9 @@
             		},
             		success:function(data)
             		{            			
-            			if(data.result == "success")
+            			if(data.result == "success") //data가 가지고 있는 key중 result에 접근을 하여서 그 값을 가지고 옵니다~
             			{
-            				let pension = data.pension;
+            				let pension = data.pension; //data가 가지고있는 key중 pension에 접근을 해서 model에서 조회된 항목들을 가지고옵니다.
                             alert
                             (
                                 "이름: " + pension.name + "\n" +

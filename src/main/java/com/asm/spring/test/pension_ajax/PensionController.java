@@ -103,13 +103,13 @@ public class PensionController
 	    @RequestParam("phoneNumber") String phoneNumber
 	) 
 	{
-		Pension pension = pensionService.selectPension(name, phoneNumber); //조회된 리스트들을 반환 받아서 클래스 변수인 pension안에 반환 된 항목들을 집어넣는다.
+		Pension pension = pensionService.selectPension(name, phoneNumber); //조회된 리스트들을 반환 받아서 클래스 변수인 pension안에 반환 된 항목들을 집어넣습니다.
 		Map<String, Object> resultMap = new HashMap<>();
 		    
 		if (pension != null) //펜션이라는 객체가 갖고있는 값이 null이 아니라면
 		{
-			resultMap.put("result", "success"); //맵안에 result라는 key와 success라는 값을 넣는다
-		    resultMap.put("pension", pension); //맵안에 pension이라는 key와 pension이라는 객체를 추가한다
+			resultMap.put("result", "success"); //맵안에 result라는 key와 success라는 값을 넣습니다.
+		    resultMap.put("pension", pension); //맵안에 pension이라는 key와 pension이라는 객체를 추가합니다.
 		} 
 		else 
 		{
