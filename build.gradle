@@ -1,37 +1,29 @@
-plugins 
-{
+plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.3.2'
 	id 'io.spring.dependency-management' version '1.1.6'
-	id 'io.freefair.lombok' version '6.6.2' // Lombok 플러그인 사용
 }
 
 group = 'com.asm'
 version = '0.0.1-SNAPSHOT'
 
-java 
-{
-	toolchain 
-	{
+java {
+	toolchain {
 		languageVersion = JavaLanguageVersion.of(17)
 	}
 }
 
-configurations 
-{
-	compileOnly 
-	{
+configurations {
+	compileOnly {
 		extendsFrom annotationProcessor
 	}
 }
 
-repositories
-{
+repositories {
 	mavenCentral()
 }
 
-dependencies 
-{
+dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
