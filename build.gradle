@@ -40,8 +40,12 @@ dependencies {
 	runtimeOnly 'com.mysql:mysql-connector-j'
 
 	testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.3'
+<<<<<<< HEAD
+
+=======
 	
 	
+>>>>>>> a97399a06d50617575703d059f03c94286a141d8
 	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.9.0'
 	
 	//JPA를 사용하기위한 설정 파일이다.
