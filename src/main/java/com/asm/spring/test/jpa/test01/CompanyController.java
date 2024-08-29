@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.asm.spring.test.jpa.test01.domain.Company;
+import com.asm.spring.test.jpa.test01.repository.CompanyRepository;
 import com.asm.spring.test.jpa.test01.service.CompanyService;
 
 @Controller
@@ -18,6 +19,9 @@ public class CompanyController
 {
 	@Autowired
 	private CompanyService companyService;
+	
+	@Autowired
+	private CompanyRepository companyRepository;
 	
 	@GetMapping("/create")
 	@ResponseBody //@ResponseBody를 붙히지 않으면 html의 경로를 서버가 찾아서 반환한다, 그와 반대로 @ResponseBody를 붙히면 반환된 값을 문자열로 바꾸어서 반환한다

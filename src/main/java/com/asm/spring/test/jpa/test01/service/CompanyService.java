@@ -61,9 +61,9 @@ public class CompanyService
 		// 조회된 객체를 통해서 삭제를 한다.
 		Optional<Company> optionalCompany = companyRepository.findById(id);
 		
-//		if(optionalCompany.isPresent())
+//		if(optionalCompany.isPresent()) //최종적으로 반환 된 값이 null이 아닌 경우
 //		{
-//			companyRepository.delete(optionalCompany.get());
+//			companyRepository.delete(optionalCompany.get()); //아래의 삭제 기능을 수행한다
 //		}
 		
 		//null이 아닐 때 수행할 기능을 등록
