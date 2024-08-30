@@ -33,13 +33,13 @@ public class RecruitController
 		
 		//recruitList = recruitRepository.findByPositionAndType("웹 back-end 개발자", "정규직");
 		
-		recruitList = recruitRepository.findByTypeOrSalaryGreaterThanEqual("정규직", 9000);
+		//recruitList = recruitRepository.findByTypeOrSalaryGreaterThanEqual("정규직", 9000);
 		
-		//recruitList = recruitRepository.findByTypeOrderBySalaryDesc("계약직");
+		//recruitList = recruitRepository.findTop3ByTypeOrderBySalaryDesc("계약직");
 		
 		//recruitList = recruitRepository.findByRegionAndSalaryBetween("성남시 분당구", 7000, 8500);
 		
-		//recruitList = recruitRepository.selectByList("2026-04-10", 8500);
+		recruitList = recruitRepository.selectByList("2026-04-10 00:00:00", 8500);
 
 		return recruitList;
 	}

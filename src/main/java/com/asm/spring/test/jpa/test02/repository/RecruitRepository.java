@@ -18,12 +18,15 @@ public interface RecruitRepository extends JpaRepository<Recruit, Integer>
 	
 	public List<Recruit> findByTypeOrSalaryGreaterThanEqual(String type, int salary);
 	
-	public List<Recruit> findByTypeOrderBySalaryDesc(String type);
+	public List<Recruit> findTop3ByTypeOrderBySalaryDesc(String type);
 	
 	//WHERE `region` = '성남시 분당구' AND `salary` BETWEEN 7000 AND 8500
 	public List<Recruit> findByRegionAndSalaryBetween(String region, int start, int end);
 	
-	@Query(value="SELECT * FROM `recruit` WHERE `deadline` >= :deadline AND `salary` >= :salary", nativeQuery=true)
+	@Query(value="SELECT * FROM `recruit`"
+			+ " WHERE `deadline` > :deadline "
+			+ "AND "
+			+ "`salary` >= :salary", nativeQuery=true)
 	public List<Recruit> selectByList(@Param("deadline") String deadline, @Param("salary") int salary);
 	
 }
